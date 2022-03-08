@@ -1,4 +1,5 @@
-﻿using DoYouAssignment.scripts;
+﻿using DoYouAssignment.pages;
+using DoYouAssignment.scripts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,17 @@ namespace DoYouAssignment
 
         private void ABOUT_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine("Open 'About' tab.");
+            MainFrame.Content = new About();
+        }
+
+        private void DASHBOARD_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new Dashboard();
+        }
+
+        private void COURSEVIEW_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = new CourseView();
         }
     }
 }

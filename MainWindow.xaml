@@ -23,12 +23,12 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0">
+                <Button Grid.Column="0" Click="DASHBOARD_Click">
                     Dashboard
                 </Button>
 
-                <Button Grid.Column="1">
-                    Dashboard
+                <Button Grid.Column="1" Click="COURSEVIEW_Click">
+                    COURSE VIEW
                 </Button>
             </Grid>
 
@@ -84,6 +84,7 @@
             <!--
                 WAILA
                 See what you are hovering over and details.
+                This could also be done via this window thingie that shows up.
             -->
             <TextBlock Grid.Column="1" HorizontalAlignment="Center">
                 What Am I Looking At?
@@ -118,11 +119,11 @@
             Frame
             The content automatically fills the avaiable space.
         -->
-        <!--<Frame>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
 
-        </Frame>-->
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+        </Frame>
+        <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
             FRAME
-        </TextBlock>
+        </TextBlock>-->
     </DockPanel>
 </Window>
