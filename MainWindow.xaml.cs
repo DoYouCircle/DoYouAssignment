@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoYouAssignment.scripts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,21 @@ namespace DoYouAssignment
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void GITHUB_Click(object sender, RoutedEventArgs e)
+        {
+            CommonUtils.OpenLink(Constants.Links.github);
+        }
+
+        private void ISSUES_Click(object sender, RoutedEventArgs e)
+        {
+            CommonUtils.OpenLink(Constants.Links.issues);
+        }
+
+        private void ABOUT_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("Open 'About' tab.");
         }
     }
 }

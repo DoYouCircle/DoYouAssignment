@@ -100,15 +100,15 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0">
-                    BUGS
+                <Button Grid.Column="0" Click="ISSUES_Click">
+                    ISSUES
                 </Button>
 
-                <Button Grid.Column="1">
+                <Button Grid.Column="1" Click="GITHUB_Click">
                     GITHUB
                 </Button>
 
-                <Button Grid.Column="2">
+                <Button Grid.Column="2" Click="ABOUT_Click">
                     ABOUT
                 </Button>
             </Grid>
