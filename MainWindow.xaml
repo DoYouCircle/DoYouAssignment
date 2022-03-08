@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoYouAssignment"
         mc:Ignorable="d"
-        Title="DoYouAssigment" Height="540" Width="960">
+        Title="DoYouAssigment" MinHeight="540" MinWidth="960">
     <DockPanel>
 
         <!--Toolbar-->
