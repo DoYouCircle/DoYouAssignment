@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:DoYouAssignment"
         mc:Ignorable="d"
         Title="DoYouAssigment" MinHeight="540" MinWidth="960">
-    <DockPanel>
+    <DockPanel LastChildFill="True">
 
-        <!--Toolbar-->
-        <Grid DockPanel.Dock="Top">
+        <!--Header-->
+        <Grid DockPanel.Dock="Top" Height="40">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="1*"/>
@@ -33,40 +33,96 @@
             </Grid>
 
             <!--Logo-->
-            <TextBlock Grid.Column="1" HorizontalAlignment="Center">
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 DoYouAssigment V0.0.1
             </TextBlock>
 
-            <!--Dropdown-->
+            <!--
+                Dropdown
+                I do not know if this is the best solution.
+                Could be a Button to open some kind of menu.
+            -->
+            
             <Grid Grid.Column="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Column="0">
-                    FILTER
-                </TextBlock>
+                <ComboBox Grid.Column="0" SelectedIndex="0">
+                    <ComboBoxItem>
+                        <TextBlock>
+                            FILTER
+                        </TextBlock>
+                    </ComboBoxItem>
+                </ComboBox>
 
-                <TextBlock Grid.Column="1">
-                    OPTIONS
-                </TextBlock>
+                <ComboBox Grid.Column="1" SelectedIndex="0">
+                    <ComboBoxItem>
+                        OPTIONS
+                    </ComboBoxItem>
+                </ComboBox>
             </Grid>
         </Grid>
 
         <!--Bottom-->
-        <StackPanel DockPanel.Dock="Bottom" Background="Beige">
-            <TextBlock HorizontalAlignment="Center">
-                Bottom Panel
-            </TextBlock>
-        </StackPanel>
+        <Grid DockPanel.Dock="Bottom" Background="Beige">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
 
-        <!--Frame-->
+            <!--
+                Alerts
+                Ideas: Version Checker, Errors, etc.
+            -->
+            <TextBlock Grid.Column="0" HorizontalAlignment="Center">
+                ALERTS
+            </TextBlock>
+
+            <!--
+                WAILA
+                See what you are hovering over and details.
+            -->
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center">
+                What Am I Looking At?
+            </TextBlock>
+
+            <!--
+                Links
+                Ideas: Bug Report, GitHub, Credits/About
+            -->
+            <Grid Grid.Column="2" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0">
+                    BUGS
+                </Button>
+
+                <Button Grid.Column="1">
+                    GITHUB
+                </Button>
+
+                <Button Grid.Column="2">
+                    ABOUT
+                </Button>
+            </Grid>
+        </Grid>
+
+        <!--
+            Frame
+            The content automatically fills the avaiable space.
+        -->
         <!--<Frame>
 
         </Frame>-->
         <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
-            Test
+            FRAME
         </TextBlock>
     </DockPanel>
 </Window>
