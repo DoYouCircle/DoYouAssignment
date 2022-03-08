@@ -85,6 +85,7 @@
                 WAILA
                 See what you are hovering over and details.
                 This could also be done via this window thingie that shows up.
+                If the space is not needed, we could use it for dad jokes :-P!
             -->
             <TextBlock Grid.Column="1" HorizontalAlignment="Center">
                 What Am I Looking At?
