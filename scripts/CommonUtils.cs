@@ -13,6 +13,9 @@ namespace DoYouAssignment.scripts
     /// </summary>
     public static class CommonUtils
     {
+        /// <summary>
+        /// Reference to the main window.
+        /// </summary>
         private static readonly MainWindow mw = (MainWindow)Application.Current.MainWindow;
 
         /// <summary>
@@ -24,20 +27,48 @@ namespace DoYouAssignment.scripts
             System.Diagnostics.Process.Start(url);
         }
 
+        /// <summary>
+        /// This class handles everything related to the Notifier. 
+        /// </summary>
         public class Notifier
         {
+            /// <summary>
+            /// This is the type of the notification.
+            /// </summary>
             public enum TYPE
             {
+                /// <summary>
+                /// Useful information
+                /// </summary>
                 INFO,
+                /// <summary>
+                /// Important information that the user should be aware of.
+                /// </summary>
                 WARNING,
+                /// <summary>
+                /// Fatal error that appeared.
+                /// </summary>
                 ERROR
             }
 
+            /// <summary>
+            /// This object holds all relevant information for the notification.
+            /// </summary>
             public class Note
             {
+                /// <summary>
+                /// Type of the notification.
+                /// </summary>
                 public TYPE Type { get; set; }
+
+                /// <summary>
+                /// This message will be shown to the user.
+                /// </summary>
                 public string Message { get; set;  }
 
+                /// <summary>
+                /// Adds the notification to the list, changes the index and activates it on the user interface.
+                /// </summary>
                 public void Add()
                 {
                     Notes.Add(this);
@@ -47,6 +78,9 @@ namespace DoYouAssignment.scripts
                     mw.NOTIFIER_Update(this);
                 }
 
+                /// <summary>
+                /// Removes the notification from the list and updates the user interface.
+                /// </summary>
                 public void Remove()
                 {
                     Notes.Remove(this);
@@ -54,6 +88,10 @@ namespace DoYouAssignment.scripts
                     Update();
                 }
 
+                /// <summary>
+                /// Returns the colour for the corresponding type of the notification.
+                /// </summary>
+                /// <returns>SolidColorBrush for the type.</returns>
                 public Brush GetColor()
                 {
                     switch (Type)
@@ -69,6 +107,10 @@ namespace DoYouAssignment.scripts
                     }
                 }
 
+                /// <summary>
+                /// Returns the shown string of the corresponding type of the notification.
+                /// </summary>
+                /// <returns>String for the type.</returns>
                 public string GetType_()
                 {
                     switch (Type)
@@ -85,15 +127,21 @@ namespace DoYouAssignment.scripts
                 }
             }
 
+            /// <summary>
+            /// A list of all active notifications.
+            /// </summary>
             public static List<Note> Notes = new List<Note>();
 
+            /// <summary>
+            /// This is the index of the currenty shown notification.
+            /// </summary>
             public static int activeIndex = 0;
 
             /// <summary>
-            /// Will be called from different places.
+            /// This function can be used to display notifications for the user.
             /// </summary>
-            /// <param name="Type"></param>
-            /// <param name="Message"></param>
+            /// <param name="Type">Type of the notification.</param>
+            /// <param name="Message">Message will be shown to the user.</param>
             public static void Throw(TYPE Type, string Message)
             {
                 new Note() {
@@ -102,6 +150,9 @@ namespace DoYouAssignment.scripts
                 }.Add();
             }
 
+            /// <summary>
+            /// Currently updates the user interface to either show the latest entry of the notifications list or to be blank.
+            /// </summary>
             public static void Update()
             {
                 activeIndex = Notes.Count - 1;
