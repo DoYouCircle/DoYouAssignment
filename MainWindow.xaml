@@ -23,12 +23,12 @@
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Click="DASHBOARD_Click">
-                    Dashboard
+                <Button Grid.Column="0" Click="DASHBOARD_Click" ToolTip="Open the Dashboard.">
+                    <TextBlock Text="DASHBOARD"/>
                 </Button>
 
-                <Button Grid.Column="1" Click="COURSEVIEW_Click">
-                    COURSE VIEW
+                <Button Grid.Column="1" Click="COURSEVIEW_Click" ToolTip="Open the Course View.">
+                    <TextBlock Text="COURSE VIEW"/>
                 </Button>
             </Grid>
 
@@ -66,9 +66,8 @@
         </Grid>
 
         <!--Bottom-->
-        <Grid DockPanel.Dock="Bottom" Background="Beige">
+        <Grid DockPanel.Dock="Bottom" Background="Beige" Height="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
@@ -77,41 +76,52 @@
                 Alerts
                 Ideas: Version Checker, Errors, etc.
             -->
-            <TextBlock Grid.Column="0" HorizontalAlignment="Center">
-                ALERTS
-            </TextBlock>
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-            <!--
-                WAILA
-                See what you are hovering over and details.
-                This could also be done via this window thingie that shows up.
-                If the space is not needed, we could use it for dad jokes :-P!
-            -->
-            <TextBlock Grid.Column="1" HorizontalAlignment="Center">
-                What Am I Looking At?
-            </TextBlock>
+                <!--Notifier Buttons-->
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button Width="20"/>
+                    <Button Width="20"/>
+                    <Button Width="20"/>
+                </StackPanel>
+                
+                <!--
+                    This should be handled by code.
+                    It has to change the text and colour.
+                -->
+                <TextBlock Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="WARNING" />
+
+                <Viewbox Grid.Column="2" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="18" Margin="5,0,5,0">
+                    <TextBlock Text="Your house is burning!!! All your sins will be forgiven!" />
+                </Viewbox>
+            </Grid>
 
             <!--
                 Links
                 Ideas: Bug Report, GitHub, Credits/About
             -->
-            <Grid Grid.Column="2" >
+            <Grid Grid.Column="1" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
 
-                <Button Grid.Column="0" Click="ISSUES_Click">
-                    ISSUES
+                <Button Grid.Column="0" Click="ISSUES_Click" ToolTip="Report a bug on GitHub!">
+                    <TextBlock Text="ISSUES"/>
                 </Button>
 
-                <Button Grid.Column="1" Click="GITHUB_Click">
-                    GITHUB
+                <Button Grid.Column="1" Click="GITHUB_Click" ToolTip="Visit the source code on GitHub!">
+                    <TextBlock Text="GITHUB"/>
                 </Button>
 
-                <Button Grid.Column="2" Click="ABOUT_Click">
-                    ABOUT
+                <Button Grid.Column="2" Click="ABOUT_Click" ToolTip="Open the About tab.">
+                    <TextBlock Text="ABOUT"/>
                 </Button>
             </Grid>
         </Grid>
