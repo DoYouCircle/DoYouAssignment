@@ -85,8 +85,12 @@
 
                 <!--Notifier Buttons-->
                 <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button Width="20" Click="NOTIFIER_Delete_Click">
+                        <TextBlock Text="X" />
+                    </Button>
+                    
                     <Button Width="20"/>
-                    <Button Width="20"/>
+                    
                     <Button Width="20"/>
                 </StackPanel>
                 
@@ -94,10 +98,10 @@
                     This should be handled by code.
                     It has to change the text and colour.
                 -->
-                <TextBlock Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="WARNING" />
+                <TextBlock x:Name="NOTIFIER_Type" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
                 <Viewbox Grid.Column="2" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="18" Margin="5,0,5,0">
-                    <TextBlock Text="Your house is burning!!! All your sins will be forgiven!" />
+                    <TextBlock x:Name="NOTIFIER_Message" />
                 </Viewbox>
             </Grid>
 
