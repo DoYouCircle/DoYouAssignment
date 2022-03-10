@@ -74,7 +74,9 @@ namespace DoYouAssignment
             {
                 NOTIFIER_Type.Text = "";
 
-                NOTIFIER_Message.Text = "";
+                NOTIFIER_Time.Text = "";
+
+                NOTIFIER_Message.Text = "";               
 
                 return;
             }
@@ -82,6 +84,8 @@ namespace DoYouAssignment
             NOTIFIER_Type.Foreground = activeNote.GetColor();
 
             NOTIFIER_Type.Text = activeNote.GetType_();
+
+            NOTIFIER_Time.Text = activeNote.GetTime();
 
             NOTIFIER_Message.Text = activeNote.Message;
         }
