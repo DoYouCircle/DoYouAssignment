@@ -8,7 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="About">
 
-    <Grid>
-        <TextBlock Text="About Test"/>
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="An Application By"/>
+
+        <Image Grid.Row="1" Source="/DoYouAssignment;component/Resources/images/DoYouLogo.png"/>
     </Grid>
 </Page>
