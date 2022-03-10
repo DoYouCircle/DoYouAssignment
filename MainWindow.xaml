@@ -132,7 +132,7 @@
 
         <!--
             Frame
-            The content automatically fills the avaiable space.
+            The content automatically fills the available space.
         -->
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
 

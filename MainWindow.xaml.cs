@@ -27,6 +27,8 @@ namespace DoYouAssignment
         {
             InitializeComponent();
 
+            MainFrame.Content = new Dashboard();
+
             Notifier.Throw(Notifier.TYPE.WARNING, "Your house could burn!");
             Notifier.Throw(Notifier.TYPE.ERROR, "Your house is currently burning!");
         }
@@ -43,17 +45,20 @@ namespace DoYouAssignment
 
         private void ABOUT_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new About();
+            if (MainFrame.Content.ToString() != new About().ToString())
+                MainFrame.Content = new About();
         }
 
         private void DASHBOARD_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new Dashboard();
+            if (MainFrame.Content.ToString() != new Dashboard().ToString())
+                MainFrame.Content = new Dashboard();
         }
 
         private void COURSEVIEW_Click(object sender, RoutedEventArgs e)
         {
-            MainFrame.Content = new CourseView();
+            if (MainFrame.Content.ToString() != new CourseView().ToString())
+                MainFrame.Content = new CourseView();
         }
 
 
