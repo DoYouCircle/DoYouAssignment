@@ -67,6 +67,11 @@ namespace DoYouAssignment.scripts
                 public string Message { get; set;  }
 
                 /// <summary>
+                /// The time at which the notification was made.
+                /// </summary>
+                public DateTime Time { get; set; }
+
+                /// <summary>
                 /// Adds the notification to the list, changes the index and activates it on the user interface.
                 /// </summary>
                 public void Add()
@@ -125,6 +130,15 @@ namespace DoYouAssignment.scripts
                             return "";
                     }
                 }
+
+                /// <summary>
+                /// Returns the time of the notification. 
+                /// </summary>
+                /// <returns>The time, at which the notification was made, as a string.</returns>
+                public string GetTime()
+                {
+                    return Time.ToString("T");
+                }
             }
 
             /// <summary>
@@ -146,7 +160,8 @@ namespace DoYouAssignment.scripts
             {
                 new Note() {
                     Type = Type,
-                    Message = Message
+                    Message = Message,
+                    Time = DateTime.Now
                 }.Add();
             }
 
