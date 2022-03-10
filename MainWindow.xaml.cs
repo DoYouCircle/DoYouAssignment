@@ -61,6 +61,11 @@ namespace DoYouAssignment
                 MainFrame.Content = new CourseView();
         }
 
+        private void SETTINGS_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainFrame.Content.ToString() != new Settings().ToString())
+                MainFrame.Content = new Settings();
+        }
 
         private void NOTIFIER_Delete_Click(object sender, RoutedEventArgs e)
         {

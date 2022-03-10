@@ -57,11 +57,9 @@
                     </ComboBoxItem>
                 </ComboBox>
 
-                <ComboBox Grid.Column="1" SelectedIndex="0">
-                    <ComboBoxItem>
-                        OPTIONS
-                    </ComboBoxItem>
-                </ComboBox>
+                <Button Grid.Column="1" Click="SETTINGS_Click" ToolTip="Open the Settings.">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="SETTINGS"/>
+                </Button>
             </Grid>
         </Grid>
 
