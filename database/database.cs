@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
+using System.Linq;
 
 namespace DoYouAssignment.database
 {
@@ -18,6 +20,16 @@ namespace DoYouAssignment.database
 				return "NULL";
 			else
 				return "'" + param + "'";
+		}
+
+		private List<Dictionary<string, object>> toDict(SQLiteDataReader reader)
+		{
+			List<Dictionary<string, object>> query = new List<Dictionary<string, object>>();
+			while (reader.Read())
+			{
+				query.Add(Enumerable.Range(0, reader.FieldCount).ToDictionary(i => reader.GetName(i), i => reader.GetValue(i)));
+			}
+			return query;
 		}
 
 		public void openDataBase(string name)
@@ -160,6 +172,45 @@ namespace DoYouAssignment.database
 				n(assignment_group_id), n(name), n(due_date), n(score), n(max_points), n(comment), n(submitted), id);
 			cmd.ExecuteNonQuery();
 			connection.Close();
+		}
+
+		public List<Dictionary<string, object>> select(string table, string filter = null)
+		{
+			connection.Open();
+			if (filter == null)
+				cmd.CommandText = String.Format(FK + "SELECT * FROM {0}", table);
+			else
+				cmd.CommandText = String.Format(FK + "SELECT * FROM {0} WHERE {1}", table, filter);
+			SQLiteDataReader reader = cmd.ExecuteReader();
+			List<Dictionary<string, object>> query = toDict(reader);
+			connection.Close();
+			return query;
+		}
+	}
+
+	class testDatabase
+	{
+		public static void test()
+		{
+			database.Database db = new database.Database();
+			db.openDataBase("db");
+			db.initializeDatabase();
+
+			db.insertCourse("Experimentalphysik");
+			db.insertAssignmentGroup(1, "Übungsblätter");
+			db.insertAssignment(1, "Blatt 1");
+
+			db.updateCourse(1, name: "newcoursename");
+			db.updateAssignmentGroup(1, name: "newgroupname");
+			db.updateAssignment(1, name: "newassignment");
+
+			db.deleteCourse(2);
+			db.deleteAssignmentGroup(2);
+			db.deleteAssignment(2);
+
+			List<Dictionary<string, object>> query = db.select("courses", "id = 1");
+
+			Console.WriteLine("");
 		}
 	}
 }
