@@ -24,5 +24,27 @@ namespace DoYouAssignment.pages.SubFrames
         {
             InitializeComponent();
         }
+
+        public void ShowDetails(object newObject)
+        {
+            if (newObject != null)
+            {
+                if (newObject.GetType() == typeof(CourseView.Test))
+                {
+                    TB_Name.Text = "It is a course!";
+
+                    return;
+                }
+
+                if (newObject.GetType() == typeof(CourseView.TestGroups))
+                {
+                    TB_Name.Text = "It is a group!";
+
+                    return;
+                }
+
+                Console.WriteLine("The type of the object could not be passed!");
+            }
+        }
     }
 }
