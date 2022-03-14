@@ -92,7 +92,7 @@
 
             <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Details"/>
 
-            <Frame x:Name="DetailsFrame" NavigationUIVisibility="Hidden" Margin="5,0,5,0">
+            <Frame Grid.Row="1" x:Name="DetailsFrame" NavigationUIVisibility="Hidden" Margin="5,0,5,0">
 
             </Frame>
         </Grid>
