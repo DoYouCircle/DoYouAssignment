@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DoYouAssignment.pages.SubFrames;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -44,6 +45,7 @@ namespace DoYouAssignment.pages
                 }
             };
 
+            DetailsFrame.Content = new CVdetails();
         }
 
         public class Test
@@ -71,17 +73,45 @@ namespace DoYouAssignment.pages
         {
             Test testcourse = (Test)DG_COURSE.SelectedItem;
 
-            List<TestGroups> groups = new List<TestGroups>();
-
-            foreach (var item in TestGroupsList)
+            //todo: add some kind of check to avoid unnecessary work & fix bug
+            if (testcourse != null)
             {
-                if (item.Curse == testcourse.NAME)
-                {
-                    groups.Add(item);
-                }
-            }
+                List<TestGroups> groups = new List<TestGroups>();
 
-            DG_AGROUP.DataContext = groups;
+                foreach (var item in TestGroupsList)
+                {
+                    if (item.Curse == testcourse.NAME)
+                    {
+                        groups.Add(item);
+                    }
+                }
+
+                DG_AGROUP.DataContext = groups;
+
+                //unselect the rows of the other tables
+                DG_AGROUP.UnselectAll();
+
+                CVdetails detailsframe = (CVdetails)DetailsFrame.Content;
+
+                detailsframe.ShowDetails(testcourse);
+            }
+        }
+
+        private void DG_AGROUP_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            TestGroups testgroup = (TestGroups)DG_AGROUP.SelectedItem;
+
+            //unselect the rows of the other tables
+            DG_COURSE.UnselectAll();
+
+            CVdetails detailsframe = (CVdetails)DetailsFrame.Content;
+
+            detailsframe.ShowDetails(testgroup);
+        }
+
+        private void DG_ASSIGNMENT_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
