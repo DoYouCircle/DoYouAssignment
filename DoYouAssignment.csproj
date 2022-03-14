@@ -74,6 +74,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="database\elements.cs" />
     <Compile Include="database\database.cs" />
     <Compile Include="pages\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
