@@ -16,7 +16,7 @@
             <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0" Margin="5,0,5,0">
+        <Grid Grid.Column="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="1*"/>
@@ -24,7 +24,7 @@
 
             <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Courses"/>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical">
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5,0,5,0">
                 <DataGrid x:Name="DG_COURSE" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_COURSE_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Course" Binding="{Binding NAME}" IsReadOnly="True" Width="*"/>
@@ -38,7 +38,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="1" Margin="5,0,5,0">
+        <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="1*"/>
@@ -46,7 +46,7 @@
 
             <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Assignment Groups"/>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical">
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5,0,5,0">
                 <DataGrid x:Name="DG_AGROUP" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_COURSE_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Course" Binding="{Binding NAME}" IsReadOnly="True" Width="*"/>
@@ -60,7 +60,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="2" Margin="5,0,5,0">
+        <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="1*"/>
@@ -68,7 +68,7 @@
 
             <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Assignments"/>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical">
+            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5,0,5,0">
                 <DataGrid x:Name="DG_ASSIGNMENT" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_COURSE_SelectionChanged">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="Course" Binding="{Binding NAME}" IsReadOnly="True" Width="*"/>
@@ -82,6 +82,17 @@
             </StackPanel>
         </Grid>
 
-        <TextBlock Grid.Column="3" HorizontalAlignment="Center" Text="Details"/>
+        <Grid Grid.Column="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Details"/>
+
+            <Frame x:Name="DetailsFrame" NavigationUIVisibility="Hidden" Margin="5,0,5,0">
+                
+            </Frame>
+        </Grid>
     </Grid>
 </Page>
