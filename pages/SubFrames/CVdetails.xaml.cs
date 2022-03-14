@@ -31,14 +31,22 @@ namespace DoYouAssignment.pages.SubFrames
             {
                 if (newObject.GetType() == typeof(CourseView.Test))
                 {
-                    TB_Name.Text = "It is a course!";
+                    CourseView.Test selectedCourse = (CourseView.Test)newObject;
+
+                    TB_Name.Text = selectedCourse.NAME;
+
+                    TB_Type.Text = newObject.GetType().ToString();
 
                     return;
                 }
 
                 if (newObject.GetType() == typeof(CourseView.TestGroups))
                 {
-                    TB_Name.Text = "It is a group!";
+                    CourseView.TestGroups selectedGroup = (CourseView.TestGroups)newObject;
+
+                    TB_Name.Text = selectedGroup.NAME;
+
+                    TB_Type.Text = newObject.GetType().ToString();
 
                     return;
                 }
