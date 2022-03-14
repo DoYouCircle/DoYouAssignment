@@ -67,6 +67,9 @@
     <Compile Include="pages\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="pages\SubFrames\CVdetails.xaml.cs">
+      <DependentUpon>CVdetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="scripts\CommonUtils.cs" />
     <Compile Include="scripts\Constants.cs" />
     <Page Include="MainWindow.xaml">
@@ -94,6 +97,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="pages\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\SubFrames\CVdetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
