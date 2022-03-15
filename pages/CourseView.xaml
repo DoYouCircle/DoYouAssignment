@@ -35,7 +35,7 @@
                     </DataGrid>
 
                     <DockPanel Margin="0,5,0,5">
-                        <Button DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50">
+                        <Button DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Click="ADD_Course_Click">
                             <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="+ New"/>
                         </Button>
 

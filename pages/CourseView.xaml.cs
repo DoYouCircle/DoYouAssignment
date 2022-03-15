@@ -1,6 +1,7 @@
 ﻿using DoYouAssignment.pages.SubFrames;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,29 +27,31 @@ namespace DoYouAssignment.pages
             InitializeComponent();
 
             // Test Data for ui design
-            DG_COURSE.DataContext = new List<Test>()
-            {
-                new Test()
-                {
-                    NAME = "Mathe",
-                    PERCENTAGE = 0.5f
-                },
-                new Test()
-                {
-                    NAME = "Physik",
-                    PERCENTAGE = 0f
-                },
-                new Test()
-                {
-                    NAME = "Informatik",
-                    PERCENTAGE = 0.25f 
-                }
-            };
+            DG_COURSE.DataContext = tests;
 
             DetailsFrame.Content = new CVdetails();
         }
 
-        public class Test
+        public ObservableCollection<Test> tests = new ObservableCollection<Test>()
+        {
+            new Test()
+            {
+                NAME = "Mathe",
+                PERCENTAGE = 0.5f
+            },
+            new Test()
+            {
+                NAME = "Physik",
+                PERCENTAGE = 0f
+            },
+            new Test()
+            {
+                NAME = "Informatik",
+                PERCENTAGE = 0.25f
+            }
+        };
+
+    public class Test
         {
             public string NAME { get; set; }
 
@@ -62,7 +65,7 @@ namespace DoYouAssignment.pages
             public string Curse { get; set; }
         }
 
-        public List<TestGroups> TestGroupsList = new List<TestGroups>()
+        public ObservableCollection<TestGroups> TestGroupsList = new ObservableCollection<TestGroups>()
         {
             new TestGroups() { Curse = "Mathe", NAME = "ein Mathekurs"},
             new TestGroups() { Curse = "Mathe", NAME = "ein weiterer Mathekurs"},
@@ -76,7 +79,7 @@ namespace DoYouAssignment.pages
             //todo: add some kind of check to avoid unnecessary work & fix bug
             if (testcourse != null)
             {
-                List<TestGroups> groups = new List<TestGroups>();
+                ObservableCollection<TestGroups> groups = new ObservableCollection<TestGroups>();
 
                 foreach (var item in TestGroupsList)
                 {
@@ -112,6 +115,16 @@ namespace DoYouAssignment.pages
         private void DG_ASSIGNMENT_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void ADD_Course_Click(object sender, RoutedEventArgs e)
+        {
+            tests.Add(new Test()
+            {
+                NAME = "unnamed course"
+            });
+
+            DG_COURSE.DataContext = tests;
         }
     }
 }
