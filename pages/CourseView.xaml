@@ -25,18 +25,28 @@
 
             <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Courses"/>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5,0,5,0">
-                <DataGrid x:Name="DG_COURSE" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_COURSE_SelectionChanged">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Course" Binding="{Binding NAME}" IsReadOnly="True" Width="*"/>
-                        <DataGridTextColumn Header="Percentage" Binding="{Binding PERCENTAGE}" IsReadOnly="True" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="5,0,5,0">
+                <StackPanel Orientation="Vertical">
+                    <DataGrid x:Name="DG_COURSE" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_COURSE_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Course" Binding="{Binding NAME}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="Percentage" Binding="{Binding PERCENTAGE}" IsReadOnly="True" Width="*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
 
-                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,0,0">
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="+ New"/>
-                </Button>
-            </StackPanel>
+                    <DockPanel Margin="0,5,0,5">
+                        <Button DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="+ New"/>
+                        </Button>
+
+                        <Button DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Width="50">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Filter"/>
+                        </Button>
+                    </DockPanel>
+
+                </StackPanel>
+            </ScrollViewer>
+
         </Grid>
 
         <!--Assignment Groups-->
@@ -48,17 +58,49 @@
 
             <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Assignment Groups"/>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5,0,5,0">
-                <DataGrid x:Name="DG_AGROUP" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_AGROUP_SelectionChanged">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="Group" Binding="{Binding NAME}" IsReadOnly="True" Width="*"/>
-                    </DataGrid.Columns>
-                </DataGrid>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="5,0,5,0">
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <DataGrid x:Name="DG_AGROUP" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_AGROUP_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Header="Group" IsReadOnly="True" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="1*"/>
+                                                <RowDefinition Height="5"/>
+                                            </Grid.RowDefinitions>
 
-                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,0,0">
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="+ New"/>
-                </Button>
-            </StackPanel>
+                                            <Grid Grid.Row="0">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="2*"/>
+                                                    <ColumnDefinition Width="1*"/>
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Grid.Column="0" Text="{Binding NAME}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+                                                <TextBlock Grid.Column="1" Text="true/false"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Grid>
+
+                                            <ProgressBar Grid.Row="1" Minimum="0" Maximum="100" Value="42"/>
+                                        </Grid>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <DockPanel Margin="0,5,0,5">
+                        <Button DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="+ New"/>
+                        </Button>
+
+                        <Button DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Width="50">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Filter"/>
+                        </Button>
+                    </DockPanel>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
 
         <!--Assignments-->
@@ -70,17 +112,25 @@
 
             <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Text="Assignments"/>
 
-            <StackPanel Grid.Row="1" Orientation="Vertical" Margin="5,0,5,0">
-                <DataGrid x:Name="DG_ASSIGNMENT" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_ASSIGNMENT_SelectionChanged">
-                    <DataGrid.Columns>
-                        <!--<DataGridTextColumn Header="Assignment" Binding="{Binding NAME}" IsReadOnly="True" Width="*"/>-->
-                    </DataGrid.Columns>
-                </DataGrid>
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="5,0,5,0">
+                <StackPanel Orientation="Vertical" Margin="5,0,5,0">
+                    <DataGrid x:Name="DG_ASSIGNMENT" ItemsSource="{Binding}" AutoGenerateColumns="False" CanUserAddRows="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" SelectionChanged="DG_ASSIGNMENT_SelectionChanged">
+                        <DataGrid.Columns>
+                            <!--<DataGridTextColumn Header="Assignment" Binding="{Binding NAME}" IsReadOnly="True" Width="*"/>-->
+                        </DataGrid.Columns>
+                    </DataGrid>
 
-                <Button HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,5,0,0">
-                    <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="+ New"/>
-                </Button>
-            </StackPanel>
+                    <DockPanel Margin="0,5,0,5">
+                        <Button DockPanel.Dock="Left" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="+ New"/>
+                        </Button>
+
+                        <Button DockPanel.Dock="Right" HorizontalAlignment="Right" VerticalAlignment="Center" Width="50">
+                            <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Text="Filter"/>
+                        </Button>
+                    </DockPanel>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
 
         <!--Details-->
