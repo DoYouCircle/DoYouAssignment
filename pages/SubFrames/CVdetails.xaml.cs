@@ -29,6 +29,13 @@ namespace DoYouAssignment.pages.SubFrames
         {
             if (newObject != null)
             {
+                if (GDetails_selected.Visibility == Visibility.Collapsed)
+                {
+                    GDetails_empty.Visibility = Visibility.Collapsed;
+
+                    GDetails_selected.Visibility = Visibility.Visible;
+                }
+
                 if (newObject.GetType() == typeof(CourseView.Test))
                 {
                     CourseView.Test selectedCourse = (CourseView.Test)newObject;
@@ -36,6 +43,12 @@ namespace DoYouAssignment.pages.SubFrames
                     TB_Name.Text = selectedCourse.NAME;
 
                     TB_Type.Text = newObject.GetType().ToString();
+
+                    if (GDetails_Course.Visibility == Visibility.Collapsed)
+                    {
+                        GDetails_Course.Visibility = Visibility.Visible;
+                    }
+                    
 
                     return;
                 }

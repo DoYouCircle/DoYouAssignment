@@ -51,7 +51,7 @@
 
                 <ComboBox Grid.Column="0" SelectedIndex="0">
                     <ComboBoxItem>
-                        <TextBlock Text="FILTER"/>
+                        <TextBlock Text="Integration"/>
                     </ComboBoxItem>
                 </ComboBox>
 

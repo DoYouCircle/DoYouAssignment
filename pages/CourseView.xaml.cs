@@ -29,6 +29,8 @@ namespace DoYouAssignment.pages
             // Test Data for ui design
             DG_COURSE.DataContext = tests;
 
+            // Cast frame content
+            // todo: add empty version of CVDetails
             DetailsFrame.Content = new CVdetails();
         }
 
@@ -51,7 +53,7 @@ namespace DoYouAssignment.pages
             }
         };
 
-    public class Test
+        public class Test
         {
             public string NAME { get; set; }
 
