@@ -10,30 +10,79 @@
 
     <Grid Background="Beige">
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
+        <!--
+            Course Details
+        -->
         <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="0" Text="Name"/>
-            
-            <TextBlock Grid.Column="1" x:Name="TB_Name" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="Name"/>
+
+                <TextBlock Grid.Column="1" x:Name="TB_Name" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="3*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="Type"/>
+
+                <TextBlock Grid.Column="1" x:Name="TB_Type" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Grid>
         </Grid>
 
-        <Grid Grid.Row="1">
+        <!--
+            Buttons
+            Delete, Save
+        -->
+        <Grid x:Name="GButtonsDefault" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" Text="Type"/>
+            <Button Grid.Column="0" ToolTip="Delete the selected item." Click="DELETE_Click">
+                <TextBlock Text="Delete"/>
+            </Button>
 
-            <TextBlock Grid.Column="1" x:Name="TB_Type" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Button Grid.Column="1" ToolTip="Save your changes.">
+                <TextBlock Text="Save"/>
+            </Button>
+        </Grid>
+        
+        <!--Delete PopUp-->
+        <Grid x:Name="GDeletePopUp" Grid.Row="0" Background="Aquamarine" Visibility="Collapsed">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="You sure about that?"/>
+        </Grid>
+
+        <Grid x:Name="GButtonsPopUp" Grid.Row="1" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Click="DEL_Cancel_Click">
+                <TextBlock Text="Cancel"/>
+            </Button>
+
+            <Button Grid.Column="1" Click="DEL_Okay_Click">
+                <TextBlock Text="Okay"/>
+            </Button>
         </Grid>
     </Grid>
 </Page>

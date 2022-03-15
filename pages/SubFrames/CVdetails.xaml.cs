@@ -54,5 +54,32 @@ namespace DoYouAssignment.pages.SubFrames
                 Console.WriteLine("The type of the object could not be passed!");
             }
         }
+
+        private void DELETE_Click(object sender, RoutedEventArgs e)
+        {
+            GButtonsDefault.Visibility = Visibility.Collapsed;
+
+            GDeletePopUp.Visibility = Visibility.Visible;
+
+            GButtonsPopUp.Visibility = Visibility.Visible;
+        }
+
+        private void DEL_Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            GButtonsDefault.Visibility = Visibility.Visible;
+
+            GDeletePopUp.Visibility = Visibility.Collapsed;
+
+            GButtonsPopUp.Visibility = Visibility.Collapsed;
+        }
+
+        private void DEL_Okay_Click(object sender, RoutedEventArgs e)
+        {
+            GButtonsDefault.Visibility = Visibility.Visible;
+
+            GDeletePopUp.Visibility = Visibility.Collapsed;
+
+            GButtonsPopUp.Visibility = Visibility.Collapsed;
+        }
     }
 }
