@@ -5,8 +5,139 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DoYouAssignment"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="DoYouAssigment" MinHeight="720" MinWidth="1280">
+    <DockPanel LastChildFill="True">
+
+        <!--Header-->
+        <Grid DockPanel.Dock="Top" Height="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Tabs-->
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Click="DASHBOARD_Click" ToolTip="Open the Dashboard.">
+                    <TextBlock Text="DASHBOARD"/>
+                </Button>
+
+                <Button Grid.Column="1" Click="COURSEVIEW_Click" ToolTip="Open the Course View.">
+                    <TextBlock Text="COURSE VIEW"/>
+                </Button>
+            </Grid>
+
+            <!--Logo-->
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                DoYouAssigment V0.0.1
+            </TextBlock>
+
+            <!--
+                Dropdown
+                I do not know if this is the best solution.
+                Could be a Button to open some kind of menu.
+            -->
+            
+            <Grid Grid.Column="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <ComboBox Grid.Column="0" SelectedIndex="0">
+                    <ComboBoxItem>
+                        <TextBlock Text="Integration"/>
+                    </ComboBoxItem>
+                </ComboBox>
+
+                <Button Grid.Column="1" Click="SETTINGS_Click" ToolTip="Open the Settings.">
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="SETTINGS"/>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <!--Bottom-->
+        <Grid DockPanel.Dock="Bottom" Background="Beige" Height="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <!--
+                Alerts
+                Ideas: Version Checker, Errors, etc.
+            -->
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Notifier Buttons-->
+                <StackPanel Grid.Column="0" Orientation="Horizontal">
+                    <Button Width="20" Click="NOTIFIER_Delete_Click">
+                        <TextBlock Text="X" />
+                    </Button>
+                    
+                    <Button Width="20"/>
+                    
+                    <Button Width="20"/>
+                </StackPanel>
+
+                <TextBlock x:Name="NOTIFIER_Time" Grid.Column="1"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                <!--
+                    This should be handled by code.
+                    It has to change the text and colour.
+                -->
+                <TextBlock x:Name="NOTIFIER_Type" Grid.Column="2"  HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+                <Viewbox Grid.Column="3" Stretch="Uniform" HorizontalAlignment="Left" VerticalAlignment="Center" MaxHeight="18" Margin="5,0,5,0">
+                    <TextBlock x:Name="NOTIFIER_Message" />
+                </Viewbox>
+            </Grid>
+
+            <!--
+                Links
+                Ideas: Bug Report, GitHub, Credits/About
+            -->
+            <Grid Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Click="ISSUES_Click" ToolTip="Report a bug on GitHub!">
+                    <TextBlock Text="ISSUES"/>
+                </Button>
+
+                <Button Grid.Column="1" Click="GITHUB_Click" ToolTip="Visit the source code on GitHub!">
+                    <TextBlock Text="GITHUB"/>
+                </Button>
+
+                <Button Grid.Column="2" Click="ABOUT_Click" ToolTip="Open the About tab.">
+                    <TextBlock Text="ABOUT"/>
+                </Button>
+            </Grid>
+        </Grid>
+
+        <!--
+            Frame
+            The content automatically fills the available space.
+        -->
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden">
+
+        </Frame>
+        <!--<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+            FRAME
+        </TextBlock>-->
+    </DockPanel>
 </Window>
