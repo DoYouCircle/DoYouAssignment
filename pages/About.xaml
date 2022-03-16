@@ -43,7 +43,7 @@
                 <TextBlock Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Text="By"/>
             </Grid>
 
-            <Image Grid.Column="1" Margin="20,0,0,0" HorizontalAlignment="Left" Source="/DoYouAssignment;component/Resources/images/DoYouLogo.png"/>
+            <Image Grid.Column="1" Margin="20,0,0,0" HorizontalAlignment="Left" Source="/Resources/images/DoYouLogo.png"/>
         </Grid>
 
         <TextBlock Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Text="Credits"/>

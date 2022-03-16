@@ -152,6 +152,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\images\DoYouLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="database\database_structure.sql" />
