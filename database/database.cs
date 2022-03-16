@@ -114,7 +114,7 @@ namespace DoYouAssignment.database
 		{
 			connection.Open();
 			SQLiteCommand cmd = connection.CreateCommand();
-			cmd.CommandText = File.ReadAllText("E:/Source/doyou/test/test/database.sql");
+			cmd.CommandText = File.ReadAllText("./database/database_structure.sql");
 			cmd.ExecuteNonQuery();
 			connection.Close();
 		}
