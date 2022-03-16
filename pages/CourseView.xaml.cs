@@ -27,70 +27,22 @@ namespace DoYouAssignment.pages
             InitializeComponent();
 
             // Test Data for ui design
-            DG_COURSE.DataContext = tests;
+            DG_COURSE.DataContext = database.Element.db.Select(database.Database.TABLES.courses);
+
+            //Console.WriteLine(database.Element.db.Select(database.Database.TABLES.courses)[0].)
 
             // Cast frame content
             DetailsFrame.Content = new CVdetails();
         }
 
-        public ObservableCollection<Test> tests = new ObservableCollection<Test>()
-        {
-            new Test()
-            {
-                NAME = "Mathe",
-                PERCENTAGE = 0.5f
-            },
-            new Test()
-            {
-                NAME = "Physik",
-                PERCENTAGE = 0f
-            },
-            new Test()
-            {
-                NAME = "Informatik",
-                PERCENTAGE = 0.25f
-            }
-        };
-
-        public class Test
-        {
-            public string NAME { get; set; }
-
-            public float PERCENTAGE { get; set; }
-        }
-
-        public class TestGroups
-        {
-            public string NAME { get; set; }
-
-            public string Curse { get; set; }
-        }
-
-        public ObservableCollection<TestGroups> TestGroupsList = new ObservableCollection<TestGroups>()
-        {
-            new TestGroups() { Curse = "Mathe", NAME = "ein Mathekurs"},
-            new TestGroups() { Curse = "Mathe", NAME = "ein weiterer Mathekurs"},
-            new TestGroups() { Curse = "Informatik", NAME = "ein Kurs der Informatik"}
-        };
-
         private void DG_COURSE_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Test testcourse = (Test)DG_COURSE.SelectedItem;
+            database.Course testcourse = (database.Course)DG_COURSE.SelectedItem;
 
             //todo: add some kind of check to avoid unnecessary work & fix potential bugs
             if (testcourse != null)
             {
-                ObservableCollection<TestGroups> groups = new ObservableCollection<TestGroups>();
-
-                foreach (var item in TestGroupsList)
-                {
-                    if (item.Curse == testcourse.NAME)
-                    {
-                        groups.Add(item);
-                    }
-                }
-
-                DG_AGROUP.DataContext = groups;
+                DG_AGROUP.DataContext = database.Element.db.Select(database.Database.TABLES.assignmentGroups, filter: string.Format("id = {0}", testcourse.Id));
 
                 //unselect the rows of the other tables
                 DG_AGROUP.UnselectAll();
@@ -103,7 +55,7 @@ namespace DoYouAssignment.pages
 
         private void DG_AGROUP_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TestGroups testgroup = (TestGroups)DG_AGROUP.SelectedItem;
+            database.AssignmentGroup testgroup = (database.AssignmentGroup)DG_AGROUP.SelectedItem;
 
             if (testgroup != null)
             {
@@ -123,12 +75,12 @@ namespace DoYouAssignment.pages
 
         private void ADD_Course_Click(object sender, RoutedEventArgs e)
         {
-            tests.Add(new Test()
-            {
-                NAME = "unnamed course"
-            });
+            //tests.Add(new Test()
+            //{
+            //    NAME = "unnamed course"
+            //});
 
-            DG_COURSE.DataContext = tests;
+            //DG_COURSE.DataContext = tests;
         }
     }
 }

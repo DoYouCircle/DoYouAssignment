@@ -29,6 +29,10 @@ namespace DoYouAssignment
 
             MainFrame.Content = new Dashboard();
 
+            // load test database
+            database.TestDatabase.Test();
+
+            // showcase of functionality
             Notifier.Throw(Notifier.TYPE.WARNING, "Your house could burn!");
             Notifier.Throw(Notifier.TYPE.ERROR, "Your house is currently burning!");
         }

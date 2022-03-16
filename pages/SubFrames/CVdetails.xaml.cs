@@ -38,42 +38,30 @@ namespace DoYouAssignment.pages.SubFrames
                 GDetails_selected.Visibility = Visibility.Visible;
             }
 
-            if (newObject.GetType() == typeof(CourseView.Test))
+            if (newObject.GetType() == typeof(database.Course))
             {
-                //CourseView.Test selectedCourse = (CourseView.Test)newObject;
-
-                //TB_Name.Text = selectedCourse.NAME;
-
-                //TB_Type.Text = newObject.GetType().ToString();
-
-                ShowCourse((CourseView.Test)newObject);
+                ShowCourse((database.Course)newObject);
                     
                 return;
             }
 
-            if (newObject.GetType() == typeof(CourseView.TestGroups))
+            if (newObject.GetType() == typeof(database.AssignmentGroup))
             {
-                //CourseView.TestGroups selectedGroup = (CourseView.TestGroups)newObject;
-
-                //TB_Name.Text = selectedGroup.NAME;
-
-                //TB_Type.Text = newObject.GetType().ToString();
-
-                ShowGroup((CourseView.TestGroups)newObject);
+                ShowGroup((database.AssignmentGroup)newObject);
 
                 return;
             }
 
-            if (newObject.GetType() == typeof(CourseView.TestGroups))
+            if (newObject.GetType() == typeof(database.Assignment))
             {
-                ShowAssignment();
+                ShowAssignment((database.Assignment)newObject);
 
                 return;
             }
 
             Console.WriteLine("The type of the object could not be passed!");
 
-            void ShowCourse(CourseView.Test course)
+            void ShowCourse(database.Course course)
             {
                 if (GDetails_Course.Visibility == Visibility.Collapsed)
                 {
@@ -84,7 +72,7 @@ namespace DoYouAssignment.pages.SubFrames
                 }
             }
 
-            void ShowGroup(CourseView.TestGroups group)
+            void ShowGroup(database.AssignmentGroup group)
             {
                 if (GDetails_Group.Visibility == Visibility.Collapsed)
                 {
@@ -95,7 +83,7 @@ namespace DoYouAssignment.pages.SubFrames
                 }
             }
 
-            void ShowAssignment(/*CourseView.TestGroups assignment*/)
+            void ShowAssignment(database.Assignment assignment)
             {
                 if (GDetails_Assignment.Visibility == Visibility.Collapsed)
                 {
