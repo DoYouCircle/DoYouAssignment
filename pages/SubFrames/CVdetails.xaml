@@ -9,7 +9,11 @@
       Title="CVdetails">
 
     <Grid Background="Beige">
-        <Grid x:Name="GDetails_empty" Grid.Row="0" Visibility="Visible">
+        <!--
+            Empty
+        -->
+        <!--<Grid x:Name="GDetails_empty" Grid.Row="0" Visibility="Visible">-->
+        <Grid x:Name="GDetails_empty" Grid.Row="0" Visibility="Collapsed">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -20,7 +24,8 @@
             <TextBlock Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Text="Select an item by clicking on the respective row."/>
         </Grid>
 
-        <Grid x:Name="GDetails_selected" Visibility="Collapsed">
+        <!--<Grid x:Name="GDetails_selected" Visibility="Collapsed">-->
+        <Grid x:Name="GDetails_selected" Visibility="Visible">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="20"/>
@@ -29,13 +34,21 @@
             <!--
                 Course Details
             -->
-            <Grid x:Name="GDetails_Course" Grid.Row="0" Visibility="Collapsed">
+            <!--<Grid x:Name="GDetails_Course" Grid.Row="0" Visibility="Collapsed">-->
+            <Grid x:Name="GDetails_Course" Grid.Row="0" Visibility="Visible" DataContext="{Binding}">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="20"/>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="0">
+                <TextBlock Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Text="Course"/>
+                
+                <Grid Grid.Row="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="3*"/>
@@ -43,18 +56,40 @@
 
                     <TextBlock Grid.Column="0" Text="Name"/>
 
-                    <TextBlock Grid.Column="1" x:Name="TB_Name" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" x:Name="TB_Name" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Name}"/>
                 </Grid>
 
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Grid.Column="0" Text="Type"/>
+                    <TextBlock Grid.Column="0" Text="Description"/>
 
-                    <TextBlock Grid.Column="1" x:Name="TB_Type" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <TextBlock Grid.Column="1" x:Name="TB_Description" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Description}"/>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Subject"/>
+
+                    <TextBlock Grid.Column="1" x:Name="TB_Subject" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Subject}"/>
+                </Grid>
+
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Column="0" Text="Semester"/>
+
+                    <TextBlock Grid.Column="1" x:Name="TB_Semester" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Semester}"/>
                 </Grid>
             </Grid>
 

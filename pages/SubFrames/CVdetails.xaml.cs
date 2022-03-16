@@ -70,6 +70,8 @@ namespace DoYouAssignment.pages.SubFrames
 
                     GDetails_Course.Visibility = Visibility.Visible;
                 }
+
+                GDetails_Course.DataContext = course;
             }
 
             void ShowGroup(database.AssignmentGroup group)
