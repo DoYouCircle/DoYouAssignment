@@ -38,17 +38,26 @@ namespace DoYouAssignment.pages.SubFrames
 
                 if (newObject.GetType() == typeof(CourseView.Test))
                 {
-                    CourseView.Test selectedCourse = (CourseView.Test)newObject;
+                    //CourseView.Test selectedCourse = (CourseView.Test)newObject;
 
-                    TB_Name.Text = selectedCourse.NAME;
+                    //TB_Name.Text = selectedCourse.NAME;
 
-                    TB_Type.Text = newObject.GetType().ToString();
+                    //TB_Type.Text = newObject.GetType().ToString();
 
-                    if (GDetails_Course.Visibility == Visibility.Collapsed)
-                    {
-                        GDetails_Course.Visibility = Visibility.Visible;
-                    }
+                    ShowCourse((CourseView.Test)newObject);
                     
+                    return;
+                }
+
+                if (newObject.GetType() == typeof(CourseView.TestGroups))
+                {
+                    //CourseView.TestGroups selectedGroup = (CourseView.TestGroups)newObject;
+
+                    //TB_Name.Text = selectedGroup.NAME;
+
+                    //TB_Type.Text = newObject.GetType().ToString();
+
+                    ShowGroup((CourseView.TestGroups)newObject);
 
                     return;
                 }
@@ -65,6 +74,39 @@ namespace DoYouAssignment.pages.SubFrames
                 }
 
                 Console.WriteLine("The type of the object could not be passed!");
+            }
+
+            void ShowCourse(CourseView.Test course)
+            {
+                if (GDetails_Course.Visibility == Visibility.Collapsed)
+                {
+                    GDetails_Group.Visibility = Visibility.Collapsed;
+                    GDetails_Assignment.Visibility = Visibility.Collapsed;
+
+                    GDetails_Course.Visibility = Visibility.Visible;
+                }
+            }
+
+            void ShowGroup(CourseView.TestGroups group)
+            {
+                if (GDetails_Group.Visibility == Visibility.Collapsed)
+                {
+                    GDetails_Course.Visibility = Visibility.Collapsed;
+                    GDetails_Assignment.Visibility = Visibility.Collapsed;
+
+                    GDetails_Group.Visibility = Visibility.Visible;
+                }
+            }
+
+            void ShowAssignment(/*CourseView.TestGroups assignment*/)
+            {
+                if (GDetails_Assignment.Visibility == Visibility.Collapsed)
+                {
+                    GDetails_Group.Visibility = Visibility.Collapsed;
+                    GDetails_Course.Visibility = Visibility.Collapsed;
+
+                    GDetails_Assignment.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -88,6 +130,9 @@ namespace DoYouAssignment.pages.SubFrames
 
         private void DEL_Okay_Click(object sender, RoutedEventArgs e)
         {
+            //todo:
+            // implement deletion
+            // reset detail frame
             GButtonsDefault.Visibility = Visibility.Visible;
 
             GDeletePopUp.Visibility = Visibility.Collapsed;

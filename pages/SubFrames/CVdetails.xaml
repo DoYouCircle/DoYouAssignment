@@ -59,6 +59,20 @@
             </Grid>
 
             <!--
+                Group Details
+            -->
+            <Grid x:Name="GDetails_Group" Grid.Row="0" Visibility="Collapsed">
+                <TextBlock Text="cool group"/>
+            </Grid>
+
+            <!--
+                Assignment Details
+            -->
+            <Grid x:Name="GDetails_Assignment" Grid.Row="0" Visibility="Collapsed">
+                <TextBlock Text="cool assignment"/>
+            </Grid>
+
+            <!--
                 Buttons
                 Delete, Save
             -->
