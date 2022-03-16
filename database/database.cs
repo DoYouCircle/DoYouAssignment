@@ -64,6 +64,7 @@ namespace DoYouAssignment.database
 							Description = (string)CastNulls(reader.GetValue(2)),
 							Semester = (string)CastNulls(reader.GetValue(3)),
 							Subject = (string)CastNulls(reader.GetValue(4)),
+							inDatabase = true,
 						}); break;
 					case TABLES.assignmentGroups:
 						query.Add(new database.AssignmentGroup()
@@ -73,6 +74,7 @@ namespace DoYouAssignment.database
 							Name = (string)CastNulls(reader.GetValue(2)),
 							Category = (string)CastNulls(reader.GetValue(3)),
 							Description = (string)CastNulls(reader.GetValue(4)),
+							inDatabase = true,
 						}); break;
 					case TABLES.assignments:
 						int a = (int)(long)CastNulls(reader.GetValue(0));
@@ -88,6 +90,7 @@ namespace DoYouAssignment.database
 							MaxPoints = (int?)CastNulls(reader.GetValue(5)),
 							Comment = (string)CastNulls(reader.GetValue(6)),
 							Submitted = (bool?)CastNulls(reader.GetValue(7)),
+							inDatabase = true,
 						}); break;
 					default:
 						continue;
