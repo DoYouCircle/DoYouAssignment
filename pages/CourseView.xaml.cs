@@ -30,7 +30,6 @@ namespace DoYouAssignment.pages
             DG_COURSE.DataContext = tests;
 
             // Cast frame content
-            // todo: add empty version of CVDetails
             DetailsFrame.Content = new CVdetails();
         }
 
@@ -78,7 +77,7 @@ namespace DoYouAssignment.pages
         {
             Test testcourse = (Test)DG_COURSE.SelectedItem;
 
-            //todo: add some kind of check to avoid unnecessary work & fix bug
+            //todo: add some kind of check to avoid unnecessary work & fix potential bugs
             if (testcourse != null)
             {
                 ObservableCollection<TestGroups> groups = new ObservableCollection<TestGroups>();
@@ -106,12 +105,15 @@ namespace DoYouAssignment.pages
         {
             TestGroups testgroup = (TestGroups)DG_AGROUP.SelectedItem;
 
-            //unselect the rows of the other tables
-            DG_COURSE.UnselectAll();
+            if (testgroup != null)
+            {
+                //unselect the rows of the other tables
+                DG_COURSE.UnselectAll();
 
-            CVdetails detailsframe = (CVdetails)DetailsFrame.Content;
+                CVdetails detailsframe = (CVdetails)DetailsFrame.Content;
 
-            detailsframe.ShowDetails(testgroup);
+                detailsframe.ShowDetails(testgroup);
+            }
         }
 
         private void DG_ASSIGNMENT_SelectionChanged(object sender, SelectionChangedEventArgs e)

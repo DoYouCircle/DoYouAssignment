@@ -25,56 +25,53 @@ namespace DoYouAssignment.pages.SubFrames
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Present the highlighted item in the details frame.
+        /// </summary>
+        /// <param name="newObject">The highlighted item.</param>
         public void ShowDetails(object newObject)
         {
-            if (newObject != null)
+            if (GDetails_selected.Visibility == Visibility.Collapsed)
             {
-                if (GDetails_selected.Visibility == Visibility.Collapsed)
-                {
-                    GDetails_empty.Visibility = Visibility.Collapsed;
+                GDetails_empty.Visibility = Visibility.Collapsed;
 
-                    GDetails_selected.Visibility = Visibility.Visible;
-                }
-
-                if (newObject.GetType() == typeof(CourseView.Test))
-                {
-                    //CourseView.Test selectedCourse = (CourseView.Test)newObject;
-
-                    //TB_Name.Text = selectedCourse.NAME;
-
-                    //TB_Type.Text = newObject.GetType().ToString();
-
-                    ShowCourse((CourseView.Test)newObject);
-                    
-                    return;
-                }
-
-                if (newObject.GetType() == typeof(CourseView.TestGroups))
-                {
-                    //CourseView.TestGroups selectedGroup = (CourseView.TestGroups)newObject;
-
-                    //TB_Name.Text = selectedGroup.NAME;
-
-                    //TB_Type.Text = newObject.GetType().ToString();
-
-                    ShowGroup((CourseView.TestGroups)newObject);
-
-                    return;
-                }
-
-                if (newObject.GetType() == typeof(CourseView.TestGroups))
-                {
-                    CourseView.TestGroups selectedGroup = (CourseView.TestGroups)newObject;
-
-                    TB_Name.Text = selectedGroup.NAME;
-
-                    TB_Type.Text = newObject.GetType().ToString();
-
-                    return;
-                }
-
-                Console.WriteLine("The type of the object could not be passed!");
+                GDetails_selected.Visibility = Visibility.Visible;
             }
+
+            if (newObject.GetType() == typeof(CourseView.Test))
+            {
+                //CourseView.Test selectedCourse = (CourseView.Test)newObject;
+
+                //TB_Name.Text = selectedCourse.NAME;
+
+                //TB_Type.Text = newObject.GetType().ToString();
+
+                ShowCourse((CourseView.Test)newObject);
+                    
+                return;
+            }
+
+            if (newObject.GetType() == typeof(CourseView.TestGroups))
+            {
+                //CourseView.TestGroups selectedGroup = (CourseView.TestGroups)newObject;
+
+                //TB_Name.Text = selectedGroup.NAME;
+
+                //TB_Type.Text = newObject.GetType().ToString();
+
+                ShowGroup((CourseView.TestGroups)newObject);
+
+                return;
+            }
+
+            if (newObject.GetType() == typeof(CourseView.TestGroups))
+            {
+                ShowAssignment();
+
+                return;
+            }
+
+            Console.WriteLine("The type of the object could not be passed!");
 
             void ShowCourse(CourseView.Test course)
             {
