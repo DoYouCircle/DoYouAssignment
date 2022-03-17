@@ -174,5 +174,58 @@ namespace DoYouAssignment.pages
 
             Notifier.Throw(Notifier.TYPE.WARNING, "You have to first select a group!");
         }
+
+        public void RemoveCourse(object course)
+        {
+            
+            database.Course testcourse = (database.Course)course;
+
+            database.Element.db.DeleteCourse((int)testcourse.Id);
+
+            int _index = -1;
+
+            for (int i = 0; i < DG_COURSE.Items.Count; i++)
+            {
+                database.Course newCourse = (database.Course)DG_COURSE.Items[i];
+
+                if (newCourse.Id == testcourse.Id)
+                {
+                    _index = i;
+
+                    break;
+                }
+            }
+
+            if (_index != -1)
+            {
+                DG_AGROUP.DataContext = null;
+                DG_ASSIGNMENT.DataContext = null;
+
+                selectedAGroup = -1;
+                selectedAssignment = -1;
+
+                DG_COURSE.UnselectAll();
+            }
+
+            DG_COURSE.DataContext = database.Element.db.Select(database.Database.TABLES.courses);
+
+            if (DG_COURSE.Items.Count > 0 )
+            {
+                if (DG_COURSE.Items.Count >= _index)
+                    DG_COURSE.SelectedIndex = _index;
+
+                else
+                    DG_COURSE.SelectedIndex = _index - 1;
+            } else
+            {
+                //Console.WriteLine("ehhhh");
+                CVdetails detailsframe = (CVdetails)DetailsFrame.Content;
+
+                detailsframe.ShowEmpty();
+            }
+
+            Console.WriteLine(testcourse.Name);
+            
+        }
     }
 }
