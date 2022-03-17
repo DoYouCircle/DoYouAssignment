@@ -177,10 +177,6 @@ namespace DoYouAssignment.pages
                 else if (dg.Items.Count == _index)
                     dg.SelectedIndex = _index - 1;
 
-                //relevant?
-                else
-                    dg.SelectedIndex = _index - 2;
-
                 return;
             }
 
