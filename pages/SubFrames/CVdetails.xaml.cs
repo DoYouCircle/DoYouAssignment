@@ -62,27 +62,6 @@ namespace DoYouAssignment.pages.SubFrames
                 GDetails_selected.Visibility = Visibility.Visible;
             }
 
-            //if (newObject.GetType() == typeof(database.Course))
-            //{
-            //    ShowCourse((database.Course)newObject);
-                    
-            //    return;
-            //}
-
-            //if (newObject.GetType() == typeof(database.AssignmentGroup))
-            //{
-            //    ShowGroup((database.AssignmentGroup)newObject);
-
-            //    return;
-            //}
-
-            //if (newObject.GetType() == typeof(database.Assignment))
-            //{
-            //    ShowAssignment((database.Assignment)newObject);
-
-            //    return;
-            //}
-
             switch (GetType(newObject))
             {
                 case Type.COURSE:
@@ -179,8 +158,10 @@ namespace DoYouAssignment.pages.SubFrames
                     cv.RemoveCourse(selectedObject);
                     break;
                 case Type.AGROUP:
+                    cv.RemoveAGroup(selectedObject);
                     break;
                 case Type.ASSIGNMENT:
+                    cv.RemoveAssignment(selectedObject);
                     break;
                 case Type.NULL:
                     break;
