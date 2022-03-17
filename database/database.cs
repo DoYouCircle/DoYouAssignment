@@ -295,18 +295,16 @@ namespace DoYouAssignment.database
 		public static void Test()
 		{
 			Database db = Element.db;
+			
+			db.InsertAssignment(db.InsertAssignmentGroup(db.InsertCourse("Experimentalphysik"), "Übungsblätter"), "Blatt 1");
 
-			db.InsertCourse("Experimentalphysik");
-			db.InsertAssignmentGroup(1, "Übungsblätter");
-			db.InsertAssignment(1, "Blatt 1");
+			//db.UpdateCourse(1, name: "newcoursename", description: "description");
+			//db.UpdateAssignmentGroup(1, name: "newgroupname");
+			//db.UpdateAssignment(1, name: "newassignment");
 
-			db.UpdateCourse(1, name: "newcoursename", description: "description");
-			db.UpdateAssignmentGroup(1, name: "newgroupname");
-			db.UpdateAssignment(1, name: "newassignment");
-
-			db.DeleteCourse(2);
-			db.DeleteAssignmentGroup(2);
-			db.DeleteAssignment(2); 
+			//db.DeleteCourse(2);
+			//db.DeleteAssignmentGroup(2);
+			//db.DeleteAssignment(2); 
 
 			List<object> query_a = db.Select(Database.TABLES.courses);
 			List<object> query_b = db.Select(Database.TABLES.assignmentGroups);
